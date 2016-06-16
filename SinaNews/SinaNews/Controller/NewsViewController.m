@@ -1,0 +1,80 @@
+//
+//  HeaderViewController.m
+//  SinaNews
+//
+//  Created by MS on 16/2/19.
+//  Copyright © 2016年 MS. All rights reserved.
+//
+
+#import "NewsViewController.h"
+#import "TTViewController.h"
+#import "TJViewController.h"
+#import "YLViewController.h"
+#import "TYViewController.h"
+#import "CJViewController.h"
+#import "KJViewController.h"
+#import "QCViewController.h"
+#import "BJViewController.h"
+
+@interface NewsViewController ()
+
+@end
+
+@implementation NewsViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor redColor];
+    
+    [self createTabBarViewWithNameArray:@[@"头条", @"推荐", @"娱乐", @"体育", @"财经", @"科技", @"汽车", @"搞笑", @"北京"]];
+    
+    [self createViewControllers];
+    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    
+    backItem.title = @"返回";
+    
+    self.navigationItem.backBarButtonItem = backItem;
+    
+}
+
+
+- (void)createViewControllers {
+    
+        NSMutableArray *array = [NSMutableArray arrayWithObjects:@"TTViewController", @"TJViewController",@"YLViewController", @"TYViewController", @"CJViewController", @"KJViewController", @"GXViewController", @"BJViewController", nil];
+    
+    for (int i = 0; i < array.count; i++) {
+        
+        
+        Class class = NSClassFromString(array[i]);
+        
+        UIViewController *viewController = [[class alloc] init];
+        
+        [array replaceObjectAtIndex:i withObject:viewController];
+
+        
+    }
+    
+    self.viewControllers = array;
+    
+}
+
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

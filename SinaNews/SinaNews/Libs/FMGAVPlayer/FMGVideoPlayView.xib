@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FMGVideoPlayView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_media_default.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JJP-Ts-JgC">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="t1N-qu-Mhn" appends="YES" id="VIA-bB-2Kc"/>
+                        <outletCollection property="gestureRecognizers" destination="45d-od-uPr" appends="YES" id="yaf-ea-8Hw"/>
+                        <outletCollection property="gestureRecognizers" destination="WEm-9V-sUM" appends="YES" id="usX-9Z-0p3"/>
+                    </connections>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fast_back" translatesAutoresizingMaskIntoConstraints="NO" id="exH-xX-tck">
+                    <rect key="frame" x="20" y="65" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="DHq-w1-hiZ"/>
+                        <constraint firstAttribute="width" constant="50" id="pDB-bV-n9X"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B0Y-G9-Al9">
+                    <rect key="frame" x="0.0" y="140" width="320" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfa-dJ-lbC">
+                            <rect key="frame" x="276" y="12" width="34" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HpB-Mp-8lf">
+                            <rect key="frame" x="90" y="5" width="183" height="31"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="slider" destination="iN0-l3-epB" eventType="touchUpInside" id="rWe-ZP-vJt"/>
+                                <action selector="sliderValueChange" destination="iN0-l3-epB" eventType="valueChanged" id="krh-94-3Wt"/>
+                                <action selector="startSlider" destination="iN0-l3-epB" eventType="touchDown" id="N1K-L5-Squ"/>
+                            </connections>
+                        </slider>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Lm-xe-Vds">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="92v-cy-ncd"/>
+                            </constraints>
+                            <state key="normal" image="vodiestop.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" image="videoplay.png"/>
+                            <connections>
+                                <action selector="playOrPause:" destination="iN0-l3-epB" eventType="touchUpInside" id="MTq-PS-PUU"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAk-ze-9v8">
+                            <rect key="frame" x="48" y="12" width="34" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="4Lm-xe-Vds" firstAttribute="leading" secondItem="B0Y-G9-Al9" secondAttribute="leading" id="2qO-t5-tkQ"/>
+                        <constraint firstAttribute="bottom" secondItem="4Lm-xe-Vds" secondAttribute="bottom" id="3sY-K1-aJ3"/>
+                        <constraint firstItem="HpB-Mp-8lf" firstAttribute="leading" secondItem="mAk-ze-9v8" secondAttribute="trailing" constant="10" id="8BC-cT-VaJ"/>
+                        <constraint firstItem="mAk-ze-9v8" firstAttribute="leading" secondItem="B0Y-G9-Al9" secondAttribute="leading" constant="48" id="979-Ml-Klw"/>
+                        <constraint firstItem="4Lm-xe-Vds" firstAttribute="top" secondItem="B0Y-G9-Al9" secondAttribute="top" id="GXV-8U-wVX"/>
+                        <constraint firstItem="wfa-dJ-lbC" firstAttribute="leading" secondItem="HpB-Mp-8lf" secondAttribute="trailing" constant="5" id="TPG-y4-dMP"/>
+                        <constraint firstItem="mAk-ze-9v8" firstAttribute="centerY" secondItem="B0Y-G9-Al9" secondAttribute="centerY" id="ZN3-T9-Fza"/>
+                        <constraint firstItem="HpB-Mp-8lf" firstAttribute="leading" secondItem="mAk-ze-9v8" secondAttribute="trailing" constant="10" id="arC-vf-5eu"/>
+                        <constraint firstAttribute="height" constant="40" id="kTJ-IV-rkT"/>
+                        <constraint firstAttribute="centerY" secondItem="HpB-Mp-8lf" secondAttribute="centerY" id="owu-xL-zqU"/>
+                        <constraint firstAttribute="trailing" secondItem="wfa-dJ-lbC" secondAttribute="trailing" constant="10" id="qNh-xs-nht"/>
+                        <constraint firstAttribute="centerY" secondItem="wfa-dJ-lbC" secondAttribute="centerY" id="znB-dN-o98"/>
+                        <constraint firstItem="mAk-ze-9v8" firstAttribute="top" secondItem="B0Y-G9-Al9" secondAttribute="top" constant="12" id="zq2-oK-Ms3"/>
+                    </constraints>
+                </view>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fast_forward" translatesAutoresizingMaskIntoConstraints="NO" id="L5i-3n-Jkv">
+                    <rect key="frame" x="250" y="65" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="FXY-zP-pql"/>
+                        <constraint firstAttribute="width" constant="50" id="nBZ-5f-aBZ"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="JJP-Ts-JgC" firstAttribute="leading" secondItem="exH-xX-tck" secondAttribute="leading" constant="-20" id="3QW-Nk-Ads"/>
+                <constraint firstAttribute="trailing" secondItem="JJP-Ts-JgC" secondAttribute="trailing" id="AIy-fi-mPX"/>
+                <constraint firstItem="B0Y-G9-Al9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Cpz-mj-kwf"/>
+                <constraint firstItem="JJP-Ts-JgC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DI8-KR-L5Z"/>
+                <constraint firstAttribute="bottom" secondItem="JJP-Ts-JgC" secondAttribute="bottom" id="DOP-rx-9B9"/>
+                <constraint firstAttribute="trailing" secondItem="B0Y-G9-Al9" secondAttribute="trailing" id="EoM-M2-Hay"/>
+                <constraint firstItem="exH-xX-tck" firstAttribute="centerY" secondItem="JJP-Ts-JgC" secondAttribute="centerY" id="KeC-HF-Jxt"/>
+                <constraint firstItem="JJP-Ts-JgC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VHP-gE-pIe"/>
+                <constraint firstAttribute="bottom" secondItem="B0Y-G9-Al9" secondAttribute="bottom" id="fH9-XM-YVJ"/>
+                <constraint firstAttribute="trailing" secondItem="L5i-3n-Jkv" secondAttribute="trailing" constant="20" id="gTn-Kf-XA2"/>
+                <constraint firstItem="L5i-3n-Jkv" firstAttribute="centerY" secondItem="JJP-Ts-JgC" secondAttribute="centerY" id="vWK-64-NFb"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backImageView" destination="exH-xX-tck" id="S7O-1Z-QVG"/>
+                <outlet property="forwardImageView" destination="L5i-3n-Jkv" id="aOH-f2-oZ2"/>
+                <outlet property="imageView" destination="JJP-Ts-JgC" id="wSc-cl-hXl"/>
+                <outlet property="leftTimeLabel" destination="mAk-ze-9v8" id="qxR-55-5Yc"/>
+                <outlet property="playOrPauseBtn" destination="4Lm-xe-Vds" id="vmA-5e-gqf"/>
+                <outlet property="progressSlider" destination="HpB-Mp-8lf" id="LIi-7e-r4L"/>
+                <outlet property="timeLabel" destination="wfa-dJ-lbC" id="JHN-yx-LCf"/>
+                <outlet property="toolView" destination="B0Y-G9-Al9" id="hZU-Rl-QTW"/>
+            </connections>
+            <point key="canvasLocation" x="328" y="478"/>
+        </view>
+        <swipeGestureRecognizer direction="right" id="45d-od-uPr">
+            <connections>
+                <action selector="swipeAction:" destination="iN0-l3-epB" id="rwp-kr-ZxM"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <swipeGestureRecognizer direction="left" id="WEm-9V-sUM">
+            <connections>
+                <action selector="swipeRight:" destination="iN0-l3-epB" id="0NC-dN-yFo"/>
+            </connections>
+        </swipeGestureRecognizer>
+        <tapGestureRecognizer id="t1N-qu-Mhn">
+            <connections>
+                <action selector="tapAction:" destination="iN0-l3-epB" id="u7X-3H-6Rn"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="bg_media_default.jpg" width="320" height="180"/>
+        <image name="fast_back" width="100" height="100"/>
+        <image name="fast_forward" width="100" height="100"/>
+        <image name="videoplay.png" width="44" height="44"/>
+        <image name="vodiestop.png" width="44" height="44"/>
+    </resources>
+</document>
